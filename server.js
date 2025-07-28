@@ -15,6 +15,11 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// ✅ 루트 경로 응답 (Render 접속 확인용)
+app.get("/", (req, res) => {
+  res.send("🟢 MetaPay AI backend is running!");
+});
+
 // ✅ 분석 API 엔드포인트
 app.post("/api/analyze", async (req, res) => {
   const { users, transactions } = req.body;
